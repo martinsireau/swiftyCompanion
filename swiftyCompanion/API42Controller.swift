@@ -11,34 +11,61 @@ import Alamofire
 
 class API42Controller {
     
-    // MARK GET token
+    var delegate : API42Delegate?
     
-    func getToken(){
-        Alamofire.request("s").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
+    init(del: API42Delegate) {
+        self.delegate = del
+    }
+    
+    // MARK GET token TODO -> do it with alamofire
+
+    func getToken() {
+        let UID : String = "337fbe7df055e5125566eed492cb7b1c23bbd0b1a6483e08ff79c7d073dfbcbb"
+        let secret : String = "c4a15c58582ef78de1f443b232479b35896bfcc75a71fdf2749a048f04513d23"
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let url = NSURL(string: "https://api.intra.42.fr/oauth/token")
+        let request = NSMutableURLRequest(url: url! as URL)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded;charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "grant_type=client_credentials&client_id=\(UID)&client_secret=\(secret)".data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            (data, response, error) in
+            if let err = error {
+                print (err)
+            } else if let d = data {
+                do {
+                    if let dic : NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                        if let t = dic["access_token"] as? String {
+                            myConst.token = t
+                            print(myConst.token!)
+                        }
+                    }
+                } catch (let err) {
+                    print (err)
+                }
             }
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        task.resume()
     }
     
     // MARK GET user
     
     func getUsers(loginStr: String) {
-        Alamofire.request("https://api.intra.42.fr/v2/users?filter[login]=\(loginStr)").responseJSON { response in
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(myConst.token!)",
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request("https://api.intra.42.fr/v2/users?filter[login]=\(loginStr)", headers: headers).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             
             if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+//                print("JSON: \(json)") // serialized json response
+                self.delegate?.getUserInfo(myJson: json)
             }
             
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
