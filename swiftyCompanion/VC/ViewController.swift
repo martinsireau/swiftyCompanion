@@ -26,6 +26,10 @@ class ViewController: UIViewController, API42Delegate {
     
     func getUserData(myJson: JSON) {
         print(myJson)
+        let userDataVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDatasViewController") as! UserDatasViewController
+
+        userDataVC.myJson = myJson
+        self.navigationController?.pushViewController(userDataVC, animated: true)
     }
     
     override func viewDidLoad() {

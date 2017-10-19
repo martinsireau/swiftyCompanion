@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		043706A91F96849B00E87942 /* API42Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043706A81F96849B00E87942 /* API42Delegate.swift */; };
+		049E846C1F98B427003B3348 /* UserDatasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E846B1F98B427003B3348 /* UserDatasViewController.swift */; };
 		1FBE387F1E7ACC0035C9853F /* Pods_swiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080A4D0112350AB897127901 /* Pods_swiftyCompanion.framework */; };
 		A30637E91F94D1DB00330854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30637E81F94D1DB00330854 /* AppDelegate.swift */; };
 		A30637EB1F94D1DB00330854 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30637EA1F94D1DB00330854 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		043706A81F96849B00E87942 /* API42Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API42Delegate.swift; sourceTree = "<group>"; };
+		049E846B1F98B427003B3348 /* UserDatasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatasViewController.swift; sourceTree = "<group>"; };
 		080A4D0112350AB897127901 /* Pods_swiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89665FF52FD1D1EC3745DD0D /* Pods-swiftyCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftyCompanion/Pods-swiftyCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		A30637E51F94D1DB00330854 /* swiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +48,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049E846D1F98B43C003B3348 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				A30637EA1F94D1DB00330854 /* ViewController.swift */,
+				049E846B1F98B427003B3348 /* UserDatasViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		37508C02B3D8E5D15953A373 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				A30637E81F94D1DB00330854 /* AppDelegate.swift */,
-				A30637EA1F94D1DB00330854 /* ViewController.swift */,
+				049E846D1F98B43C003B3348 /* VC */,
 				043706A81F96849B00E87942 /* API42Delegate.swift */,
 				A3565B051F961CD800A3809F /* API42Controller.swift */,
 				A3565B071F9624AA00A3809F /* myConst.swift */,
@@ -229,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30637EB1F94D1DB00330854 /* ViewController.swift in Sources */,
+				049E846C1F98B427003B3348 /* UserDatasViewController.swift in Sources */,
 				A3565B081F9624AA00A3809F /* myConst.swift in Sources */,
 				A3565B061F961CD800A3809F /* API42Controller.swift in Sources */,
 				043706A91F96849B00E87942 /* API42Delegate.swift in Sources */,
