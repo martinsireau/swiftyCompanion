@@ -7,20 +7,25 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController, API42Delegate {
-
+    
     var API42 : API42Controller?
     
     @IBOutlet weak var myTextField: UITextField!
     
-    func getUserInfo(myJson: Any) {
+    func getUserInfo(myJson: JSON) {
+        print(myJson[0]["login"].stringValue)
+        let userName = myJson[0]["login"].stringValue
+        let userID = myJson[0]["id"].stringValue
+        if let myAPI42 = API42 {
+            myAPI42.getUserDatas(userID: userID, loginStr: userName)
+        }
+    }
+    
+    func getUserData(myJson: JSON) {
         print(myJson)
-//        if () {
-//
-//        } else {
-//
-//        }
     }
     
     override func viewDidLoad() {

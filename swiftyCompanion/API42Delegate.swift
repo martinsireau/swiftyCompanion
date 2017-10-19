@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol API42Delegate {
-    func getUserInfo(myJson: Any)
+    func getUserInfo(myJson: JSON)
+    func getUserData(myJson: JSON)
 }

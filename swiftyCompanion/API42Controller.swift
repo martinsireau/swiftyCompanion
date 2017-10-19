@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class API42Controller {
     
@@ -64,13 +65,35 @@ class API42Controller {
             print("Result: \(response.result)")                         // response serialization result
             
             if let json = response.result.value {
-//                print("JSON: \(json)") // serialized json response
-                self.delegate?.getUserInfo(myJson: json)
+                print("JSON: \(json)") // serialized json response
+                let myJson = JSON(json)
+                self.delegate?.getUserInfo(myJson: myJson)
             }
-            
+        
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
         }
     }
+    
+    // MARK GET User Data
+    
+    func getUserDatas(userID: String, loginStr: String) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(myConst.token!)",
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request("https://api.intra.42.fr/v2/users/\(userID)?filter[login]=\(loginStr)", headers: headers).responseJSON { response in
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+                let myJson = JSON(json)
+                self.delegate?.getUserData(myJson: myJson)
+            }
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+//                print("Data: \(utf8Text)") // original server data as UTF8 string
+//            }
+        }
+    }
+
 }
