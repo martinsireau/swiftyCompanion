@@ -109,7 +109,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ind-tH-G7g">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_login" translatesAutoresizingMaskIntoConstraints="NO" id="sdK-Ch-BcV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_login" translatesAutoresizingMaskIntoConstraints="NO" id="sdK-Ch-BcV">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="194" id="KoJ-CF-hPc"/>
@@ -121,6 +121,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="msireau42" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-hi-h74">
+                                        <rect key="frame" x="8" y="28" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="sdK-Ch-BcV" firstAttribute="top" secondItem="Ind-tH-G7g" secondAttribute="top" id="9AN-jP-3Td"/>
@@ -142,6 +152,9 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="userPic" destination="PZV-hi-h74" id="dAG-PZ-2zW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gr-UL-pVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,5 +163,6 @@
     </scenes>
     <resources>
         <image name="background_login" width="2000" height="1300"/>
+        <image name="msireau42" width="200" height="240"/>
     </resources>
 </document>
