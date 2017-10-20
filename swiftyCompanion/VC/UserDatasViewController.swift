@@ -27,8 +27,8 @@ class UserDatasViewController: UIViewController {
         userPic.layer.borderColor = UIColor.lightGray.cgColor
         
         myProgressView.transform = myProgressView.transform.scaledBy(x: 1, y: 4)
-//        myProgressView.layer.cornerRadius = myProgressView.frame.size.width / 2
-//        myProgressView.clipsToBounds = true
+        myProgressView.layer.cornerRadius = 5
+        myProgressView.clipsToBounds = true
     }
 
 }
