@@ -12,6 +12,7 @@ import SwiftyJSON
 class UserDatasViewController: UIViewController {
     
     @IBOutlet weak var userPic: UIImageView!
+    @IBOutlet weak var myProgressView: UIProgressView!
     
     var myJson = JSON()
     
@@ -20,10 +21,14 @@ class UserDatasViewController: UIViewController {
         self.title = "Profile"
         print(myJson)
         
-        self.userPic.layer.cornerRadius = self.userPic.frame.size.width / 2
-        self.userPic.clipsToBounds = true
-        self.userPic.layer.borderWidth = 4.0
-        self.userPic.layer.borderColor = UIColor.lightGray.cgColor
+        userPic.layer.cornerRadius = userPic.frame.size.width / 2
+        userPic.clipsToBounds = true
+        userPic.layer.borderWidth = 4.0
+        userPic.layer.borderColor = UIColor.lightGray.cgColor
+        
+        myProgressView.transform = myProgressView.transform.scaledBy(x: 1, y: 4)
+//        myProgressView.layer.cornerRadius = myProgressView.frame.size.width / 2
+//        myProgressView.clipsToBounds = true
     }
 
 }
