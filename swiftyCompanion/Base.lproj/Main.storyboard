@@ -380,11 +380,16 @@
                     </view>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="correctionPoint" destination="nzU-AH-4S5" id="BSw-gw-ec1"/>
+                        <outlet property="login" destination="khQ-4D-2bp" id="sTT-oW-Tll"/>
+                        <outlet property="mainLevel" destination="LSy-eb-j6C" id="Rw3-Ma-aDg"/>
                         <outlet property="myProgressView" destination="bnT-mc-tnI" id="yxK-Ow-Vud"/>
+                        <outlet property="phone" destination="Ac9-Ss-0yD" id="iMZ-Vo-Ic2"/>
                         <outlet property="skillTableView" destination="TWw-xB-aFC" id="tbN-8y-jkp"/>
                         <outlet property="theScrollView" destination="Ind-tH-G7g" id="b7G-31-LFu"/>
                         <outlet property="userFullName" destination="DPF-rI-TMg" id="MTA-PT-wbc"/>
                         <outlet property="userPic" destination="PZV-hi-h74" id="dAG-PZ-2zW"/>
+                        <outlet property="wallet" destination="tTb-je-AaE" id="7Ch-UI-QMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gr-UL-pVy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,7 +16,13 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     @IBOutlet weak var theScrollView: UIScrollView!
     @IBOutlet weak var skillTableView: UITableView!
+    
     @IBOutlet weak var userFullName: UILabel!
+    @IBOutlet weak var login: UILabel!
+    @IBOutlet weak var phone: UILabel!
+    @IBOutlet weak var wallet: UILabel!
+    @IBOutlet weak var correctionPoint: UILabel!
+    @IBOutlet weak var mainLevel: UILabel!
     
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
@@ -51,9 +57,18 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         skillTableView.separatorStyle = .none
 
         userDatas = UserDatas(myJson: myJson)
-        userFullName.text = userDatas?.name
+        self.setData()
     }
 
+    func setData(){
+        userFullName.text = userDatas?.name
+        login.text = userDatas?.login
+        phone.text = userDatas?.phone
+        wallet.text = "Wallet: \(String(describing: userDatas!.wallet))"
+        correctionPoint.text = "Correction: \(userDatas!.correction)"
+        mainLevel.text = "Level: \(userDatas!.level)"
+//        login.text = userDatas?.
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
