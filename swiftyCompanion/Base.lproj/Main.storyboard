@@ -124,7 +124,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msireau42" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-hi-h74">
-                                        <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                        <rect key="frame" x="8" y="16" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="9Zv-OR-KgR"/>
                                             <constraint firstAttribute="height" constant="100" id="SPq-wq-OOF"/>
@@ -137,7 +137,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Martin SIREAU kjsdahfa lasdjhf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPF-rI-TMg">
-                                        <rect key="frame" x="8" y="116" width="100" height="26.5"/>
+                                        <rect key="frame" x="8" y="124" width="100" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="v4H-QN-Txe"/>
                                         </constraints>
@@ -146,7 +146,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jJ3-fu-idH">
-                                        <rect key="frame" x="297.5" y="8" width="69.5" height="69"/>
+                                        <rect key="frame" x="297.5" y="16" width="69.5" height="69"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="msireau" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khQ-4D-2bp">
                                                 <rect key="frame" x="0.0" y="0.0" width="69.5" height="13.5"/>
@@ -200,7 +200,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="248"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lti-9I-nbV">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="Lti-9I-nbV">
                                                                 <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lti-9I-nbV" id="Ssk-pu-Hpc">
@@ -215,6 +215,10 @@
                                                                 <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="daO-iL-6R1" id="tjK-yZ-cOs"/>
+                                                            <outlet property="delegate" destination="daO-iL-6R1" id="yTD-1S-WyZ"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,8 +257,8 @@
                                     <constraint firstItem="nV0-JC-zu0" firstAttribute="centerY" secondItem="Ind-tH-G7g" secondAttribute="centerY" constant="481.5" id="IHm-Y1-BkZ"/>
                                     <constraint firstItem="LSy-eb-j6C" firstAttribute="leading" secondItem="bnT-mc-tnI" secondAttribute="leading" id="Ixx-QK-zH3"/>
                                     <constraint firstItem="bnT-mc-tnI" firstAttribute="top" secondItem="sdK-Ch-BcV" secondAttribute="bottom" constant="-25" id="J0s-on-aEJ"/>
-                                    <constraint firstItem="jJ3-fu-idH" firstAttribute="top" secondItem="Ind-tH-G7g" secondAttribute="top" constant="8" id="TIa-Xw-0O1"/>
-                                    <constraint firstItem="PZV-hi-h74" firstAttribute="top" secondItem="Ind-tH-G7g" secondAttribute="top" constant="8" id="UOA-dK-4gp"/>
+                                    <constraint firstItem="jJ3-fu-idH" firstAttribute="top" secondItem="Ind-tH-G7g" secondAttribute="top" constant="16" id="TIa-Xw-0O1"/>
+                                    <constraint firstItem="PZV-hi-h74" firstAttribute="top" secondItem="Ind-tH-G7g" secondAttribute="top" constant="16" id="UOA-dK-4gp"/>
                                     <constraint firstItem="sdK-Ch-BcV" firstAttribute="centerX" secondItem="nV0-JC-zu0" secondAttribute="centerX" id="XBD-67-xPt"/>
                                     <constraint firstAttribute="trailing" secondItem="sER-mr-mRe" secondAttribute="trailing" id="etB-7o-6mF"/>
                                     <constraint firstAttribute="trailing" secondItem="sdK-Ch-BcV" secondAttribute="trailing" id="f8L-Y8-yUI"/>
@@ -268,6 +272,9 @@
                                     <constraint firstItem="sER-mr-mRe" firstAttribute="leading" secondItem="Ind-tH-G7g" secondAttribute="leading" id="xKc-yw-6rg"/>
                                     <constraint firstItem="sER-mr-mRe" firstAttribute="top" secondItem="sdK-Ch-BcV" secondAttribute="bottom" id="yND-I2-O4B"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="daO-iL-6R1" id="kdb-wa-aj8"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -281,6 +288,8 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="myProgressView" destination="bnT-mc-tnI" id="yxK-Ow-Vud"/>
+                        <outlet property="skillTableView" destination="TWw-xB-aFC" id="tbN-8y-jkp"/>
+                        <outlet property="theScrollView" destination="Ind-tH-G7g" id="b7G-31-LFu"/>
                         <outlet property="userPic" destination="PZV-hi-h74" id="dAG-PZ-2zW"/>
                     </connections>
                 </viewController>
