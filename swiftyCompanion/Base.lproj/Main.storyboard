@@ -196,12 +196,32 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="248"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="Lti-9I-nbV">
-                                                                <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="60" id="Lti-9I-nbV" customClass="SkillTableViewCell" customModule="swiftyCompanion" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="359" height="60"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lti-9I-nbV" id="Ssk-pu-Hpc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="59.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unix - Level 12.14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDO-rX-YQN">
+                                                                            <rect key="frame" x="8" y="8" width="351" height="16"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fId-UK-8OX">
+                                                                            <rect key="frame" x="41" y="32" width="277" height="2"/>
+                                                                            <color key="tintColor" red="0.13689491149999999" green="0.79690223930000004" blue="0.56709229949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </progressView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="fId-UK-8OX" secondAttribute="trailing" constant="41" id="75d-vc-p1c"/>
+                                                                        <constraint firstItem="fId-UK-8OX" firstAttribute="leading" secondItem="Ssk-pu-Hpc" secondAttribute="leading" constant="41" id="Ic7-bn-jp3"/>
+                                                                        <constraint firstItem="JDO-rX-YQN" firstAttribute="top" secondItem="Ssk-pu-Hpc" secondAttribute="top" constant="8" id="Wcs-xB-Sli"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="JDO-rX-YQN" secondAttribute="trailing" id="gpL-J4-5AK"/>
+                                                                        <constraint firstItem="fId-UK-8OX" firstAttribute="top" secondItem="JDO-rX-YQN" secondAttribute="bottom" constant="8" id="oYj-tv-Q4u"/>
+                                                                        <constraint firstItem="JDO-rX-YQN" firstAttribute="leading" secondItem="Ssk-pu-Hpc" secondAttribute="leading" constant="8" id="uPP-AW-3U6"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -246,8 +266,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-4B-7Rz">
                                         <rect key="frame" x="0.0" y="500" width="375" height="300"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA4-qz-88l">
-                                                <rect key="frame" x="8" y="8.5" width="39.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA4-qz-88l">
+                                                <rect key="frame" x="8" y="9" width="62.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -259,12 +279,21 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="248"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="zGn-V5-ULi">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="beO-YG-qDq" style="IBUITableViewCellStyleDefault" id="zGn-V5-ULi">
                                                                 <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zGn-V5-ULi" id="M4W-kv-1k3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="beO-YG-qDq">
+                                                                            <rect key="frame" x="15" y="0.0" width="329" height="43.5"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
                                                                 </tableViewCellContentView>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -354,12 +383,13 @@
                         <outlet property="myProgressView" destination="bnT-mc-tnI" id="yxK-Ow-Vud"/>
                         <outlet property="skillTableView" destination="TWw-xB-aFC" id="tbN-8y-jkp"/>
                         <outlet property="theScrollView" destination="Ind-tH-G7g" id="b7G-31-LFu"/>
+                        <outlet property="userFullName" destination="DPF-rI-TMg" id="MTA-PT-wbc"/>
                         <outlet property="userPic" destination="PZV-hi-h74" id="dAG-PZ-2zW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gr-UL-pVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="183"/>
+            <point key="canvasLocation" x="901.60000000000002" y="182.60869565217394"/>
         </scene>
     </scenes>
     <resources>

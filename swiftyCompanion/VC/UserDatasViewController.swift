@@ -16,11 +16,13 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     @IBOutlet weak var theScrollView: UIScrollView!
     @IBOutlet weak var skillTableView: UITableView!
+    @IBOutlet weak var userFullName: UILabel!
     
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
     
     var myJson = JSON()
+    var userDatas : UserDatas?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,13 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         skillTableView.bounces = false
         skillTableView.isScrollEnabled = true
 
+        skillTableView.rowHeight  = UITableViewAutomaticDimension
+        skillTableView.estimatedRowHeight = 140
+        
+        skillTableView.separatorStyle = .none
+
+        userDatas = UserDatas(myJson: myJson)
+        userFullName.text = userDatas?.name
     }
 
     
@@ -52,10 +61,12 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = skillTableView.dequeueReusableCell(withIdentifier: "myCell")
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
-
-        
-        cell.textLabel?.text = "lol\(indexPath.row)"
+        var cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+        if (tableView.isEqual(skillTableView)){
+            cell = self.skillTableView.dequeueReusableCell(withIdentifier: "myCell") as! SkillTableViewCell
+        } else {
+            cell.textLabel?.text = "lol\(indexPath.row)"
+        }
         
         return cell
     }

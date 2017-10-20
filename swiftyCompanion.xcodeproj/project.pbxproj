@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		043706A91F96849B00E87942 /* API42Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043706A81F96849B00E87942 /* API42Delegate.swift */; };
 		04998F381F9A3610005256F3 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04998F371F9A3610005256F3 /* SkillTableViewCell.swift */; };
+		04998F3A1F9A4C40005256F3 /* userDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04998F391F9A4C40005256F3 /* userDatas.swift */; };
+		04998F3C1F9A4D34005256F3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04998F3B1F9A4D34005256F3 /* Skill.swift */; };
 		049E846C1F98B427003B3348 /* UserDatasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E846B1F98B427003B3348 /* UserDatasViewController.swift */; };
 		1FBE387F1E7ACC0035C9853F /* Pods_swiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080A4D0112350AB897127901 /* Pods_swiftyCompanion.framework */; };
 		A30637E91F94D1DB00330854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30637E81F94D1DB00330854 /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		043706A81F96849B00E87942 /* API42Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API42Delegate.swift; sourceTree = "<group>"; };
 		04998F371F9A3610005256F3 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
+		04998F391F9A4C40005256F3 /* userDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userDatas.swift; sourceTree = "<group>"; };
+		04998F3B1F9A4D34005256F3 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		049E846B1F98B427003B3348 /* UserDatasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatasViewController.swift; sourceTree = "<group>"; };
 		080A4D0112350AB897127901 /* Pods_swiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89665FF52FD1D1EC3745DD0D /* Pods-swiftyCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftyCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftyCompanion/Pods-swiftyCompanion.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04998F3D1F9A4D69005256F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04998F391F9A4C40005256F3 /* userDatas.swift */,
+				04998F3B1F9A4D34005256F3 /* Skill.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		049E846D1F98B43C003B3348 /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +116,7 @@
 				A3565B051F961CD800A3809F /* API42Controller.swift */,
 				A3565B071F9624AA00A3809F /* myConst.swift */,
 				A30637EC1F94D1DC00330854 /* Main.storyboard */,
+				04998F3D1F9A4D69005256F3 /* Model */,
 				04998F371F9A3610005256F3 /* SkillTableViewCell.swift */,
 				A30637EF1F94D1DC00330854 /* Assets.xcassets */,
 				A30637F11F94D1DC00330854 /* LaunchScreen.storyboard */,
@@ -245,9 +259,11 @@
 				A30637EB1F94D1DB00330854 /* ViewController.swift in Sources */,
 				04998F381F9A3610005256F3 /* SkillTableViewCell.swift in Sources */,
 				049E846C1F98B427003B3348 /* UserDatasViewController.swift in Sources */,
+				04998F3C1F9A4D34005256F3 /* Skill.swift in Sources */,
 				A3565B081F9624AA00A3809F /* myConst.swift in Sources */,
 				A3565B061F961CD800A3809F /* API42Controller.swift in Sources */,
 				043706A91F96849B00E87942 /* API42Delegate.swift in Sources */,
+				04998F3A1F9A4C40005256F3 /* userDatas.swift in Sources */,
 				A30637E91F94D1DB00330854 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
