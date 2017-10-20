@@ -185,10 +185,62 @@
                                         <color key="tintColor" red="0.13689491149999999" green="0.79690223930000004" blue="0.56709229949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sER-mr-mRe">
-                                        <rect key="frame" x="0.0" y="194" width="375" height="128"/>
-                                        <color key="backgroundColor" red="0.13689491149999999" green="0.79690223930000004" blue="0.56709229949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="194" width="375" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYK-Vx-IDQ">
+                                                <rect key="frame" x="8" y="8" width="39.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ll4-Vz-9Ni">
+                                                <rect key="frame" x="8" y="35.5" width="359" height="248.5"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TWw-xB-aFC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="248"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lti-9I-nbV">
+                                                                <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lti-9I-nbV" id="Ssk-pu-Hpc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="TWw-xB-aFC" secondAttribute="bottom" id="OcS-OA-R48"/>
+                                                    <constraint firstItem="TWw-xB-aFC" firstAttribute="top" secondItem="ll4-Vz-9Ni" secondAttribute="top" id="VUt-wU-sGZ"/>
+                                                    <constraint firstItem="TWw-xB-aFC" firstAttribute="leading" secondItem="ll4-Vz-9Ni" secondAttribute="leading" id="Ywn-d2-JIQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TWw-xB-aFC" secondAttribute="trailing" id="eiS-gC-MSh"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="dVe-M4-0FC"/>
+                                            <constraint firstItem="ll4-Vz-9Ni" firstAttribute="leading" secondItem="sER-mr-mRe" secondAttribute="leading" constant="8" id="C6e-nG-rA5"/>
+                                            <constraint firstItem="ll4-Vz-9Ni" firstAttribute="top" secondItem="EYK-Vx-IDQ" secondAttribute="bottom" constant="7.5" id="CMT-Ry-8SA"/>
+                                            <constraint firstAttribute="height" constant="300" id="H7h-86-TUQ"/>
+                                            <constraint firstItem="EYK-Vx-IDQ" firstAttribute="leading" secondItem="sER-mr-mRe" secondAttribute="leadingMargin" id="UgZ-IN-BYu"/>
+                                            <constraint firstAttribute="trailing" secondItem="ll4-Vz-9Ni" secondAttribute="trailing" constant="8" id="dvt-ou-VRP"/>
+                                            <constraint firstItem="EYK-Vx-IDQ" firstAttribute="top" secondItem="sER-mr-mRe" secondAttribute="topMargin" id="fuJ-xm-j6p"/>
+                                            <constraint firstAttribute="bottom" secondItem="ll4-Vz-9Ni" secondAttribute="bottom" constant="16" id="gUv-oE-bba"/>
                                         </constraints>
                                     </view>
                                 </subviews>
