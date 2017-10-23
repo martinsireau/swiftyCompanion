@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SDWebImage
 
 class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,6 +24,7 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var wallet: UILabel!
     @IBOutlet weak var correctionPoint: UILabel!
     @IBOutlet weak var mainLevel: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
     
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
@@ -70,6 +72,7 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         mainLevel.text = "Level: \(level) - \(Int(percent.rounded()))%"
         myProgressView.progress = percent/100
         
+        userImage.sd_setImage(with: userDatas?.imgUrl, completed: nil)
 //        login.text = userDatas?.
     }
     

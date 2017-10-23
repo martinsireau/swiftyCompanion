@@ -388,6 +388,7 @@
                         <outlet property="skillTableView" destination="TWw-xB-aFC" id="tbN-8y-jkp"/>
                         <outlet property="theScrollView" destination="Ind-tH-G7g" id="b7G-31-LFu"/>
                         <outlet property="userFullName" destination="DPF-rI-TMg" id="MTA-PT-wbc"/>
+                        <outlet property="userImage" destination="PZV-hi-h74" id="UBK-U1-LKH"/>
                         <outlet property="userPic" destination="PZV-hi-h74" id="dAG-PZ-2zW"/>
                         <outlet property="wallet" destination="tTb-je-AaE" id="7Ch-UI-QMt"/>
                     </connections>

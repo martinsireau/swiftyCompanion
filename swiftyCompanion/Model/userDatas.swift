@@ -16,6 +16,7 @@ struct UserDatas {
     let wallet : Int
     let correction : Int
     let level : Float
+    let imgUrl : URL
 //    let skills : [Skill]
     
     init(myJson: JSON) {
@@ -25,5 +26,6 @@ struct UserDatas {
         self.wallet = myJson["wallet"].int!
         self.correction = myJson["correction_point"].int!
         self.level = myJson["cursus_users"][0]["level"].float!
+        self.imgUrl = myJson["image_url"].url!
     }
 }
