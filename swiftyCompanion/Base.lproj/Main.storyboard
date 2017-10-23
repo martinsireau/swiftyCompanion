@@ -283,22 +283,31 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="248"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="beO-YG-qDq" style="IBUITableViewCellStyleDefault" id="zGn-V5-ULi">
-                                                                <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="75" id="zGn-V5-ULi" customClass="ProjectTableViewCell" customModule="swiftyCompanion" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="359" height="75"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zGn-V5-ULi" id="M4W-kv-1k3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="74.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="beO-YG-qDq">
-                                                                            <rect key="frame" x="15" y="0.0" width="329" height="43.5"/>
-                                                                            <autoresizingMask key="autoresizingMask"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flx-Jr-arq">
+                                                                            <rect key="frame" x="8" y="0.0" width="343" height="67"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="flx-Jr-arq" firstAttribute="top" secondItem="M4W-kv-1k3" secondAttribute="top" id="1aC-dn-FCm"/>
+                                                                        <constraint firstItem="flx-Jr-arq" firstAttribute="trailing" secondItem="M4W-kv-1k3" secondAttribute="trailingMargin" id="D5m-6f-QHp"/>
+                                                                        <constraint firstItem="flx-Jr-arq" firstAttribute="leading" secondItem="M4W-kv-1k3" secondAttribute="leadingMargin" id="K4c-t6-zR1"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="flx-Jr-arq" secondAttribute="bottom" constant="-0.5" id="v7q-c0-hTv"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
+                                                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                                                <connections>
+                                                                    <outlet property="myLabel" destination="flx-Jr-arq" id="FHz-G6-ODQ"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                         <userDefinedRuntimeAttributes>
@@ -330,7 +339,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="6q6-cw-pRa"/>
                                             <constraint firstAttribute="bottom" secondItem="P00-HS-7Jk" secondAttribute="bottom" constant="15" id="A28-b4-PXL"/>
                                             <constraint firstItem="P00-HS-7Jk" firstAttribute="leading" secondItem="q6N-4B-7Rz" secondAttribute="leadingMargin" id="LLN-JZ-yN8"/>
                                             <constraint firstItem="P00-HS-7Jk" firstAttribute="trailing" secondItem="q6N-4B-7Rz" secondAttribute="trailingMargin" id="gwt-Ii-G6M"/>
@@ -378,6 +386,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ind-tH-G7g" secondAttribute="trailing" id="2Jl-jR-CBF"/>
                             <constraint firstItem="Ind-tH-G7g" firstAttribute="top" secondItem="SHN-E0-9zx" secondAttribute="top" id="5WQ-i7-HbC"/>
+                            <constraint firstItem="htE-NZ-WvB" firstAttribute="top" secondItem="q6N-4B-7Rz" secondAttribute="bottom" id="Bxy-6E-6hI"/>
                             <constraint firstItem="Ind-tH-G7g" firstAttribute="bottom" secondItem="htE-NZ-WvB" secondAttribute="top" id="HtP-F6-Ppy"/>
                             <constraint firstItem="Ind-tH-G7g" firstAttribute="leading" secondItem="SHN-E0-9zx" secondAttribute="leading" id="aGi-vA-me3"/>
                         </constraints>
@@ -389,6 +398,7 @@
                         <outlet property="mainLevel" destination="LSy-eb-j6C" id="Rw3-Ma-aDg"/>
                         <outlet property="myProgressView" destination="bnT-mc-tnI" id="yxK-Ow-Vud"/>
                         <outlet property="phone" destination="Ac9-Ss-0yD" id="iMZ-Vo-Ic2"/>
+                        <outlet property="projectTableView" destination="3GD-Bf-GIJ" id="hT5-TJ-yP3"/>
                         <outlet property="skillTableView" destination="TWw-xB-aFC" id="tbN-8y-jkp"/>
                         <outlet property="theScrollView" destination="Ind-tH-G7g" id="b7G-31-LFu"/>
                         <outlet property="userFullName" destination="DPF-rI-TMg" id="MTA-PT-wbc"/>

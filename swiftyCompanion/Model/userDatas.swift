@@ -18,6 +18,7 @@ struct UserDatas {
     let level : Float
     let imgUrl : URL
     var allSkills : [Skill]
+    var allProjects : [Project]
 //    let skills : [Skill]
     
     init(myJson: JSON) {
@@ -34,6 +35,17 @@ struct UserDatas {
         for skill in theSkills{
             let mySkill = Skill(name: skill["name"].string!, level:skill["level"].float!)
             self.allSkills.append(mySkill)
+        }
+        
+        self.allProjects = [Project]()
+        let theProjects = myJson["projects_users"].arrayValue
+        for proj in theProjects{
+            if let projName = proj["project"]["name"].string, let level = proj["final_mark"].int, let ckeckSlug = proj["project"]["slug"].string {
+                if (ckeckSlug.range(of:"piscine-c") == nil){
+                    let myProj = Project(name: projName, level:level)
+                    self.allProjects.append(myProj)
+                }
+            }
         }
     }
 }

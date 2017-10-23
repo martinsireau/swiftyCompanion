@@ -17,6 +17,7 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     @IBOutlet weak var theScrollView: UIScrollView!
     @IBOutlet weak var skillTableView: UITableView!
+    @IBOutlet weak var projectTableView: UITableView!
     
     @IBOutlet weak var userFullName: UILabel!
     @IBOutlet weak var login: UILabel!
@@ -55,8 +56,12 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
 
         skillTableView.rowHeight  = UITableViewAutomaticDimension
         skillTableView.estimatedRowHeight = 140
+        projectTableView.rowHeight  = UITableViewAutomaticDimension
+        projectTableView.estimatedRowHeight = 140
+
         
         skillTableView.separatorStyle = .none
+//        projectTableView.separatorStyle = .none
 
         userDatas = UserDatas(myJson: myJson)
         self.setData()
@@ -81,12 +86,11 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         if (tableView.isEqual(skillTableView)){
             return (userDatas?.allSkills.count)!
         }
-        return 3
+        return (userDatas?.allProjects.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = skillTableView.dequeueReusableCell(withIdentifier: "myCell")
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
         if (tableView.isEqual(skillTableView)){
             let skillCell = self.skillTableView.dequeueReusableCell(withIdentifier: "myCell") as! SkillTableViewCell
             if let skillName = userDatas?.allSkills[indexPath.row].name {
@@ -97,7 +101,12 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             return skillCell
         }
-        cell.textLabel?.text = "lol\(indexPath.row)"
+        let cell = self.projectTableView.dequeueReusableCell(withIdentifier: "myCell") as! ProjectTableViewCell
+        if let projectName = userDatas?.allProjects[indexPath.row].name, let projectLevel = userDatas?.allProjects[indexPath.row].level {
+            cell.myLabel.text = "\(projectName) - \(projectLevel)"
+        } else {
+//            cell.textLabel?.text = "bite"
+        }
         
         return cell
     }
