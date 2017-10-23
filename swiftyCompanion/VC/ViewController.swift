@@ -14,6 +14,7 @@ class ViewController: UIViewController, API42Delegate {
     var API42 : API42Controller?
     
     
+    @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var fetchDataLbl: UILabel!
     @IBOutlet weak var mySpinWheel: UIActivityIndicatorView!
     @IBOutlet weak var myTextField: UITextField!
@@ -27,6 +28,7 @@ class ViewController: UIViewController, API42Delegate {
             fetchDataLbl.isHidden = true
             mySpinWheel.stopAnimating()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            myButton.isUserInteractionEnabled = true
             return
         }
         print(myJson[0]["login"].stringValue)
@@ -42,6 +44,7 @@ class ViewController: UIViewController, API42Delegate {
 
         userDataVC.myJson = myJson
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        myButton.isUserInteractionEnabled = true
         self.navigationController?.pushViewController(userDataVC, animated: true)
     }
     
@@ -60,6 +63,7 @@ class ViewController: UIViewController, API42Delegate {
     }
     
     @IBAction func SearchLogin(_ sender: Any) {
+        myButton.isUserInteractionEnabled = false
         if myConst.token != nil {
             if let userId = myTextField.text, let myAPI42 = API42 {
                 fetchDataLbl.isHidden = false

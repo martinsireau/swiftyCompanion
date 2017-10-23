@@ -111,6 +111,7 @@
                     <navigationItem key="navigationItem" title="Welcome" id="W37-oX-7hM"/>
                     <connections>
                         <outlet property="fetchDataLbl" destination="hLM-Ye-X16" id="ili-kZ-SeP"/>
+                        <outlet property="myButton" destination="EGr-8Q-J7Y" id="GtH-lt-jf9"/>
                         <outlet property="mySpinWheel" destination="Fw2-HV-qlz" id="lM9-Lw-bvi"/>
                         <outlet property="myTextField" destination="cUV-gK-9hH" id="Mdl-ou-5OK"/>
                     </connections>
