@@ -71,7 +71,8 @@ class ViewController: UIViewController, API42Delegate {
                 myAPI42.getUsers(loginStr: userId)
             }
         } else {
-            print("ERROR WITH BEARER")
+            myButton.isUserInteractionEnabled = true
+            print("WAITING FOR BEARER")
         }
     }
 }
