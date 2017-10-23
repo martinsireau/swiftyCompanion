@@ -45,8 +45,6 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         myProgressView.clipsToBounds = true
         
         theScrollView.contentSize = CGSize(width: self.view.frame.width, height: scrollViewContentHeight)
-//        scrollView.delegate = self
-//        tableView.delegate = self
         theScrollView.bounces = false
         skillTableView.bounces = false
         skillTableView.isScrollEnabled = true
@@ -66,7 +64,12 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         phone.text = userDatas?.phone
         wallet.text = "Wallet: \(String(describing: userDatas!.wallet))"
         correctionPoint.text = "Correction: \(userDatas!.correction)"
-        mainLevel.text = "Level: \(userDatas!.level)"
+        
+        let level = Int((userDatas?.level)!)
+        let percent = (userDatas?.level)!.truncatingRemainder(dividingBy: Float(level)) * 100
+        mainLevel.text = "Level: \(level) - \(Int(percent.rounded()))%"
+        myProgressView.progress = percent/100
+        
 //        login.text = userDatas?.
     }
     
@@ -85,6 +88,4 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         return cell
     }
-    
-    
 }
