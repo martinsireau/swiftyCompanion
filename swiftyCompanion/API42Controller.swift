@@ -24,7 +24,6 @@ class API42Controller {
         let UID : String = "337fbe7df055e5125566eed492cb7b1c23bbd0b1a6483e08ff79c7d073dfbcbb"
         let secret : String = "c4a15c58582ef78de1f443b232479b35896bfcc75a71fdf2749a048f04513d23"
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let url = NSURL(string: "https://api.intra.42.fr/oauth/token")
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "POST"
@@ -40,6 +39,9 @@ class API42Controller {
                         if let t = dic["access_token"] as? String {
                             myConst.token = t
                             print(myConst.token!)
+                            DispatchQueue.main.async {
+                                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                            }
                         }
                     }
                 } catch (let err) {
@@ -47,7 +49,6 @@ class API42Controller {
                 }
             }
         }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         task.resume()
     }
     
@@ -59,6 +60,9 @@ class API42Controller {
             "Accept": "application/json"
         ]
         
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
         Alamofire.request("https://api.intra.42.fr/v2/users?filter[login]=\(loginStr)", headers: headers).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -74,6 +78,9 @@ class API42Controller {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
         }
+//        DispatchQueue.main.async {
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//        }
     }
     
     // MARK GET User Data
@@ -84,16 +91,20 @@ class API42Controller {
             "Accept": "application/json"
         ]
         
+//        DispatchQueue.main.async {
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//        }
         Alamofire.request("https://api.intra.42.fr/v2/users/\(userID)?filter[login]=\(loginStr)", headers: headers).responseJSON { response in
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
                 let myJson = JSON(json)
                 self.delegate?.getUserData(myJson: myJson)
             }
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                print("Data: \(utf8Text)") // original server data as UTF8 string
-//            }
         }
+//        DispatchQueue.main.async {
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//        }
+
     }
 
 }

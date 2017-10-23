@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3dk-ZT-fLG"/>
-                                            <constraint firstAttribute="width" constant="200" id="pQW-ra-jn5"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="pQW-ra-jn5"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -58,7 +58,7 @@
                                         <rect key="frame" x="0.0" y="40" width="200" height="30"/>
                                         <color key="backgroundColor" red="0.13689491149999999" green="0.79690223930000004" blue="0.56709229949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="KXF-Tf-qAC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="KXF-Tf-qAC"/>
                                         </constraints>
                                         <state key="normal" title="Search Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
