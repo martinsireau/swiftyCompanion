@@ -26,6 +26,8 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var mainLevel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
+    var allSkills = [Skill]()
+    
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
     
@@ -73,21 +75,29 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         myProgressView.progress = percent/100
         
         userImage.sd_setImage(with: userDatas?.imgUrl, completed: nil)
-//        login.text = userDatas?.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if (tableView.isEqual(skillTableView)){
+            return (userDatas?.allSkills.count)!
+        }
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = skillTableView.dequeueReusableCell(withIdentifier: "myCell")
-        var cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
         if (tableView.isEqual(skillTableView)){
-            cell = self.skillTableView.dequeueReusableCell(withIdentifier: "myCell") as! SkillTableViewCell
-        } else {
-            cell.textLabel?.text = "lol\(indexPath.row)"
+            let skillCell = self.skillTableView.dequeueReusableCell(withIdentifier: "myCell") as! SkillTableViewCell
+            if let skillName = userDatas?.allSkills[indexPath.row].name {
+                if let skillNumber = userDatas?.allSkills[indexPath.row].level {
+                    skillCell.nameAndLevelLbl.text = "\(skillName) - \(skillNumber)"
+                    skillCell.skillProgressBar.progress = (userDatas?.allSkills[indexPath.row].percent)!
+                }
+            }
+            return skillCell
         }
+        cell.textLabel?.text = "lol\(indexPath.row)"
         
         return cell
     }

@@ -17,6 +17,7 @@ struct UserDatas {
     let correction : Int
     let level : Float
     let imgUrl : URL
+    var allSkills : [Skill]
 //    let skills : [Skill]
     
     init(myJson: JSON) {
@@ -27,5 +28,12 @@ struct UserDatas {
         self.correction = myJson["correction_point"].int!
         self.level = myJson["cursus_users"][0]["level"].float!
         self.imgUrl = myJson["image_url"].url!
+        
+        self.allSkills = [Skill]()
+        let theSkills = myJson["cursus_users"][0]["skills"].arrayValue
+        for skill in theSkills{
+            let mySkill = Skill(name: skill["name"].string!, level:skill["level"].float!)
+            self.allSkills.append(mySkill)
+        }
     }
 }

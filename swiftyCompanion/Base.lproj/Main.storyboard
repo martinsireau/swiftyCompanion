@@ -223,6 +223,10 @@
                                                                         <constraint firstItem="JDO-rX-YQN" firstAttribute="leading" secondItem="Ssk-pu-Hpc" secondAttribute="leading" constant="8" id="uPP-AW-3U6"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="nameAndLevelLbl" destination="JDO-rX-YQN" id="VfK-ZF-gkP"/>
+                                                                    <outlet property="skillProgressBar" destination="fId-UK-8OX" id="v6e-mu-xkS"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                         <userDefinedRuntimeAttributes>
