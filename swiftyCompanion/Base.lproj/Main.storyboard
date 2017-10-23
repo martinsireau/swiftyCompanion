@@ -75,19 +75,43 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-nx-sW7">
+                                <rect key="frame" x="0.0" y="429" width="375" height="70.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLM-Ye-X16">
+                                        <rect key="frame" x="134" y="0.0" width="107" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="GYj-UA-fUs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Fw2-HV-qlz">
+                                        <rect key="frame" x="177.5" y="50.5" width="20" height="20"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6gb-nx-sW7" secondAttribute="trailing" id="1Oc-f6-LnG"/>
+                            <constraint firstItem="6gb-nx-sW7" firstAttribute="top" secondItem="ogL-Jr-6X8" secondAttribute="bottom" priority="750" constant="61" id="E9q-UC-Da6"/>
                             <constraint firstItem="123-Oo-skX" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="I3H-VK-VVI"/>
+                            <constraint firstItem="6gb-nx-sW7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ILj-cQ-aK0"/>
                             <constraint firstItem="ogL-Jr-6X8" firstAttribute="centerY" secondItem="123-Oo-skX" secondAttribute="centerY" id="VLR-gB-o4W"/>
                             <constraint firstItem="123-Oo-skX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="foG-7l-xeg"/>
                             <constraint firstItem="ogL-Jr-6X8" firstAttribute="centerX" secondItem="123-Oo-skX" secondAttribute="centerX" id="guw-Hc-hWm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6gb-nx-sW7" secondAttribute="bottom" constant="30" id="nEd-mi-HWY"/>
                             <constraint firstAttribute="trailing" secondItem="123-Oo-skX" secondAttribute="trailing" id="nIb-do-uco"/>
                             <constraint firstItem="123-Oo-skX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uvj-Bg-AMz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="W37-oX-7hM"/>
                     <connections>
+                        <outlet property="fetchDataLbl" destination="hLM-Ye-X16" id="ili-kZ-SeP"/>
+                        <outlet property="mySpinWheel" destination="Fw2-HV-qlz" id="lM9-Lw-bvi"/>
                         <outlet property="myTextField" destination="cUV-gK-9hH" id="Mdl-ou-5OK"/>
                     </connections>
                 </viewController>
@@ -292,17 +316,17 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flx-Jr-arq">
-                                                                            <rect key="frame" x="8" y="0.0" width="343" height="67"/>
+                                                                            <rect key="frame" x="8" y="15" width="343" height="44"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="flx-Jr-arq" firstAttribute="top" secondItem="M4W-kv-1k3" secondAttribute="top" id="1aC-dn-FCm"/>
+                                                                        <constraint firstItem="flx-Jr-arq" firstAttribute="top" secondItem="M4W-kv-1k3" secondAttribute="top" constant="15" id="1aC-dn-FCm"/>
                                                                         <constraint firstItem="flx-Jr-arq" firstAttribute="trailing" secondItem="M4W-kv-1k3" secondAttribute="trailingMargin" id="D5m-6f-QHp"/>
                                                                         <constraint firstItem="flx-Jr-arq" firstAttribute="leading" secondItem="M4W-kv-1k3" secondAttribute="leadingMargin" id="K4c-t6-zR1"/>
-                                                                        <constraint firstAttribute="bottomMargin" secondItem="flx-Jr-arq" secondAttribute="bottom" constant="-0.5" id="v7q-c0-hTv"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="flx-Jr-arq" secondAttribute="bottom" constant="7.5" id="v7q-c0-hTv"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
