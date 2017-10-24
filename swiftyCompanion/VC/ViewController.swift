@@ -104,9 +104,9 @@ class ViewController: UIViewController, API42Delegate {
         }
     }
     
-    @IBAction func changeToken(_ sender: UIButton) {
-        let defaults:UserDefaults = UserDefaults.standard
-        defaults.set("CACA", forKey: "token_value")
-        myConst.token = "CACA"
-    }
+//    @IBAction func changeToken(_ sender: UIButton) {
+//        let defaults:UserDefaults = UserDefaults.standard
+//        defaults.set("CACA", forKey: "token_value")
+//        myConst.token = "CACA"
+//    }
 }

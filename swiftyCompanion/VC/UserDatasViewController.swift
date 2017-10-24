@@ -94,7 +94,6 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = skillTableView.dequeueReusableCell(withIdentifier: "myCell")
         if (tableView.isEqual(skillTableView)){
             let skillCell = self.skillTableView.dequeueReusableCell(withIdentifier: "myCell") as! SkillTableViewCell
             if let skillName = userDatas?.allSkills[indexPath.row].name {
@@ -106,10 +105,9 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
             return skillCell
         }
         let cell = self.projectTableView.dequeueReusableCell(withIdentifier: "myCell") as! ProjectTableViewCell
-        if let projectName = userDatas?.allProjects[indexPath.row].name, let projectLevel = userDatas?.allProjects[indexPath.row].level {
+        if let projectName = userDatas?.allProjects[indexPath.row].name, let projectLevel = userDatas?.allProjects[indexPath.row].level, let slug = userDatas?.allProjects[indexPath.row].slug{
             cell.myLabel.text = "\(projectName) - \(projectLevel)"
-        } else {
-//            cell.textLabel?.text = "bite"
+            cell.mySlug.text = "\(slug)"
         }
         
         return cell

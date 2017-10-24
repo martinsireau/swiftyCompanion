@@ -11,9 +11,11 @@ import Foundation
 struct Project{
     let name : String
     let level : Int
+    let slug : String
     
-    init(name: String, level: Int) {
+    init(name: String, level: Int, slug: String) {
         self.name = name
         self.level = level
+        self.slug = slug
     }
 }

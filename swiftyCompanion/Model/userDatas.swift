@@ -59,11 +59,11 @@ struct UserDatas {
         self.allProjects = [Project]()
         let theProjects = myJson["projects_users"].arrayValue
         for proj in theProjects{
-            if let projName = proj["project"]["name"].string, let level = proj["final_mark"].int, let ckeckSlug = proj["project"]["slug"].string {
-                if (ckeckSlug.range(of:"piscine-c") == nil){
-                    let myProj = Project(name: projName, level:level)
+            if let projName = proj["project"]["name"].string,
+                let level = proj["final_mark"].int,
+                let checkSlug = proj["project"]["slug"].string{
+                    let myProj = Project(name: projName, level: level, slug: checkSlug)
                     self.allProjects.append(myProj)
-                }
             }
         }
     }
