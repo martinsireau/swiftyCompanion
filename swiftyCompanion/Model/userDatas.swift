@@ -10,31 +10,50 @@ import Foundation
 import SwiftyJSON
 
 struct UserDatas {
-    let name : String
-    let login : String
-    let phone : String
-    let wallet : Int
-    let correction : Int
-    let level : Float
-    let imgUrl : URL
+    let name : String?
+    let login : String?
+    let phone : String?
+    let wallet : Int?
+    let correction : Int?
+    let level : Float?
+    let imgUrl : URL?
     var allSkills : [Skill]
     var allProjects : [Project]
-//    let skills : [Skill]
     
     init(myJson: JSON) {
-        self.name = myJson["displayname"].string!
-        self.login = myJson["login"].string!
-        self.phone = myJson["phone"].string!
-        self.wallet = myJson["wallet"].int!
-        self.correction = myJson["correction_point"].int!
-        self.level = myJson["cursus_users"][0]["level"].float!
-        self.imgUrl = myJson["image_url"].url!
-        
+        if let name = myJson["displayname"].string{
+            self.name = name
+        } else { self.name = nil }
+        if let login = myJson["login"].string{
+            self.login = login
+        } else { self.login = nil }
+        if let phone = myJson["phone"].string {
+            self.phone = phone
+        } else { self.phone = nil }
+        if let wallet = myJson["wallet"].int{
+            self.wallet = wallet
+        } else { self.wallet = nil }
+        if let correction = myJson["correction_point"].int{
+            self.correction = correction
+        } else { self.correction = nil }
+        if let level = myJson["cursus_users"][0]["level"].float{
+            self.level = level
+        } else { self.level = nil }
+        if let img = myJson["image_url"].url{
+            if img.absoluteString == "https://cdn.intra.42.fr/images/default.png" {
+                self.imgUrl = URL(string:  "https://cdn.intra.42.fr/users/medium_default.png")
+            } else {
+                self.imgUrl = img
+            }
+        } else { self.imgUrl = URL(fileURLWithPath: "https://cdn.intra.42.fr/users/medium_default.png") }
+    
         self.allSkills = [Skill]()
         let theSkills = myJson["cursus_users"][0]["skills"].arrayValue
         for skill in theSkills{
-            let mySkill = Skill(name: skill["name"].string!, level:skill["level"].float!)
-            self.allSkills.append(mySkill)
+            if let skName = skill["name"].string, let sklLevel = skill["level"].float{
+                let mySkill = Skill(name: skName, level:sklLevel)
+                self.allSkills.append(mySkill)
+            }
         }
         
         self.allProjects = [Project]()

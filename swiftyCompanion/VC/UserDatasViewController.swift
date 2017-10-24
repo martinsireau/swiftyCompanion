@@ -71,14 +71,18 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         userFullName.text = userDatas?.name
         login.text = userDatas?.login
         phone.text = userDatas?.phone
-        wallet.text = "Wallet: \(String(describing: userDatas!.wallet))"
-        correctionPoint.text = "Correction: \(userDatas!.correction)"
+        wallet.text = "Wallet: \(String(describing: userDatas!.wallet!))"
+        correctionPoint.text = "Correction: \(String(describing: userDatas!.correction!))"
         
         let level = Int((userDatas?.level)!)
         let percent = (userDatas?.level)!.truncatingRemainder(dividingBy: Float(level)) * 100
-        mainLevel.text = "Level: \(level) - \(Int(percent.rounded()))%"
-        myProgressView.progress = percent/100
-        
+        if !percent.isNaN {
+            mainLevel.text = "Level: \(level) - \(Int(percent.rounded()))%"
+            myProgressView.progress = percent/100
+        } else {
+            mainLevel.text = "Level: \(level) - 0%"
+            myProgressView.progress = 0
+        }
         userImage.sd_setImage(with: userDatas?.imgUrl, completed: nil)
     }
     

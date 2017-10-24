@@ -72,6 +72,7 @@ class ViewController: UIViewController, API42Delegate {
         let defaults:UserDefaults = UserDefaults.standard
         if let token = (defaults.string(forKey: "token_value")){
             myConst.token = token
+            print(token)
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         } else {
             API42!.getToken()
