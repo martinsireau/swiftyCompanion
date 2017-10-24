@@ -21,6 +21,14 @@ class ViewController: UIViewController, API42Delegate {
     
     func getUserInfo(myJson: JSON) {
         
+        if let error = myJson["error"].string{
+            if error == "Not authorized"{
+                API42!.getToken()
+                self.checkUser()
+            }
+            return
+        }
+        
         if (myJson[0].isEmpty) {
             let alert = UIAlertController(title: "Info", message: "No Matching profiles with this Login", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -31,6 +39,7 @@ class ViewController: UIViewController, API42Delegate {
             myButton.isUserInteractionEnabled = true
             return
         }
+
         print(myJson[0]["login"].stringValue)
         let userName = myJson[0]["login"].stringValue
         let userID = myJson[0]["id"].stringValue
@@ -59,13 +68,31 @@ class ViewController: UIViewController, API42Delegate {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         API42 = API42Controller(del: self)
-        API42!.getToken()
+        
+        let defaults:UserDefaults = UserDefaults.standard
+        if let token = (defaults.string(forKey: "token_value")){
+            myConst.token = token
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        } else {
+            API42!.getToken()
+        }
     }
     
     @IBAction func SearchLogin(_ sender: Any) {
+        self.checkUser()
+    }
+    
+    func checkUser(){
         myButton.isUserInteractionEnabled = false
         if myConst.token != nil {
             if let userId = myTextField.text, let myAPI42 = API42 {
+                if userId.isEmpty {
+                    let alert = UIAlertController(title: "Info", message: "Search cannot be empty", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    myButton.isUserInteractionEnabled = true
+                    return
+                }
                 fetchDataLbl.isHidden = false
                 self.mySpinWheel.startAnimating()
                 myAPI42.getUsers(loginStr: userId)
@@ -74,5 +101,11 @@ class ViewController: UIViewController, API42Delegate {
             myButton.isUserInteractionEnabled = true
             print("WAITING FOR BEARER")
         }
+    }
+    
+    @IBAction func changeToken(_ sender: UIButton) {
+        let defaults:UserDefaults = UserDefaults.standard
+        defaults.set("CACA", forKey: "token_value")
+        myConst.token = "CACA"
     }
 }

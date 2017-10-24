@@ -32,13 +32,13 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
     let screenHeight = UIScreen.main.bounds.height
     let scrollViewContentHeight = 1200 as CGFloat
     
-    var myJson = JSON()
+    var myJson : JSON?
     var userDatas : UserDatas?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
-        print(myJson)
+        print(myJson!)
         
         userPic.layer.cornerRadius = userPic.frame.size.width / 2
         userPic.clipsToBounds = true
@@ -63,7 +63,7 @@ class UserDatasViewController: UIViewController, UIScrollViewDelegate, UITableVi
         skillTableView.separatorStyle = .none
 //        projectTableView.separatorStyle = .none
 
-        userDatas = UserDatas(myJson: myJson)
+        userDatas = UserDatas(myJson: myJson!)
         self.setData()
     }
 

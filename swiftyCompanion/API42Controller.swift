@@ -17,8 +17,6 @@ class API42Controller {
     init(del: API42Delegate) {
         self.delegate = del
     }
-    
-    // MARK GET token TODO -> do it with alamofire
 
     func getToken() {
         let UID : String = "337fbe7df055e5125566eed492cb7b1c23bbd0b1a6483e08ff79c7d073dfbcbb"
@@ -38,6 +36,8 @@ class API42Controller {
                     if let dic : NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                         if let t = dic["access_token"] as? String {
                             myConst.token = t
+                            let defaults:UserDefaults = UserDefaults.standard
+                            defaults.set(t, forKey: "token_value")
                             print(myConst.token!)
                             DispatchQueue.main.async {
                                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -78,9 +78,6 @@ class API42Controller {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
         }
-//        DispatchQueue.main.async {
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//        }
     }
     
     // MARK GET User Data
@@ -91,9 +88,6 @@ class API42Controller {
             "Accept": "application/json"
         ]
         
-//        DispatchQueue.main.async {
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        }
         Alamofire.request("https://api.intra.42.fr/v2/users/\(userID)?filter[login]=\(loginStr)", headers: headers).responseJSON { response in
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
@@ -101,10 +95,6 @@ class API42Controller {
                 self.delegate?.getUserData(myJson: myJson)
             }
         }
-//        DispatchQueue.main.async {
-//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//        }
-
     }
 
 }

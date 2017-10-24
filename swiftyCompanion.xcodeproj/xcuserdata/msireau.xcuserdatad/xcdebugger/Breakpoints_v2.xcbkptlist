@@ -17,38 +17,6 @@
             endingLineNumber = "33"
             landmarkName = "getToken()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "swiftyCompanion.ViewController.(getToken () -&gt; ()).(closure #1)"
-                  moduleName = "swiftyCompanion"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/msireau/work/swift/swiftyCompanion/swiftyCompanion/ViewController.swift"
-                  timestampString = "529932848.723745"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "2041">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "swiftyCompanion.ViewController.(getToken () -&gt; ()).(closure #1).(implicit closure #1)"
-                  moduleName = "swiftyCompanion"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/msireau/work/swift/swiftyCompanion/swiftyCompanion/ViewController.swift"
-                  timestampString = "529932848.725607"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
