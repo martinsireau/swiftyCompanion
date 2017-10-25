@@ -86,7 +86,7 @@ class ViewController: UIViewController, API42Delegate {
     func checkUser(){
         myButton.isUserInteractionEnabled = false
         if myConst.token != nil {
-            if let userId = myTextField.text, let myAPI42 = API42 {
+            if let userId = myTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), let myAPI42 = API42 {
                 if userId.isEmpty {
                     let alert = UIAlertController(title: "Info", message: "Search cannot be empty", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -106,7 +106,7 @@ class ViewController: UIViewController, API42Delegate {
     
 //    @IBAction func changeToken(_ sender: UIButton) {
 //        let defaults:UserDefaults = UserDefaults.standard
-//        defaults.set("CACA", forKey: "token_value")
-//        myConst.token = "CACA"
+//        defaults.set("test", forKey: "token_value")
+//        myConst.token = "test"
 //    }
 }
